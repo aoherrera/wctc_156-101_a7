@@ -64,7 +64,7 @@ public class StringInterpolationService : IStringInterpolationService
 
     public string Number06()
     {
-        var answer = $"{_date.Now.ToString("t", usa),10}" + $"{_date.Now.DayOfWeek,10}";
+        var answer = $"{_date.Now.ToString("hh:ss tt", usa),10}" + $"{_date.Now.DayOfWeek,10}";
         Console.WriteLine(answer);
 
         return answer;
@@ -104,7 +104,9 @@ public class StringInterpolationService : IStringInterpolationService
 
     public string Number11()
     {
-        throw new NotImplementedException();
+        var answer = $"{_date.Now.Year:X2}";
+
+        return answer;
     }
 
     //2.2019.01.22
