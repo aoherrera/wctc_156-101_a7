@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Microsoft.Extensions.Logging;
 using StringInterpolationTemplate.Utils;
 
@@ -16,6 +17,9 @@ public class StringInterpolationService : IStringInterpolationService
         _logger.Log(LogLevel.Information, "Executing the StringInterpolationService");
     }
 
+    CultureInfo usa = new CultureInfo("en-US");
+    double pi = Math.PI;
+
     //1. January 22, 2019 (right aligned in a 40 character field)
     public string Number01()
     {
@@ -28,47 +32,74 @@ public class StringInterpolationService : IStringInterpolationService
 
     public string Number02()
     {
-        throw new NotImplementedException();
+        var answer = $"{_date.Now.ToString("yyyy.MM.dd", usa)}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number03()
     {
-        throw new NotImplementedException();
+        var answer = $"Day {_date.Now.Day} of {_date.Now.ToString("MMMM, yyyy")}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number04()
     {
-        throw new NotImplementedException();
+        var answer = $"Year: {_date.Now.Year}, Month: {_date.Now.ToString("MM")}, Day: {_date.Now.Day}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number05()
     {
-        throw new NotImplementedException();
+        var answer = $"{_date.Now.DayOfWeek,10}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number06()
     {
-        throw new NotImplementedException();
+        var answer = $"{_date.Now.ToString("t", usa),10}" + $"{_date.Now.DayOfWeek,10}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number07()
     {
-        throw new NotImplementedException();
+        var answer = $"h:{_date.Now.ToString("hh")}, m:{_date.Now.ToString("mm")}, s:{_date.Now.ToString("ss")}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number08()
     {
-        throw new NotImplementedException();
+        var answer = $"{_date.Now.ToString("yyyy.MM.dd", usa)}.{_date.Now.ToString("hh.mm.ss")}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number09()
     {
-        throw new NotImplementedException();
+        var answer = pi.ToString("C", usa);
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number10()
     {
-        throw new NotImplementedException();
+        var answer = $"{pi,10:0.###}";
+        Console.WriteLine(answer);
+
+        return answer;
     }
 
     public string Number11()
